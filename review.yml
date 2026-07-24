@@ -1,0 +1,114 @@
+aid: aci-worldwide
+name: ACI Worldwide
+review:
+  question: Does ACI Worldwide publish a real, self-serve public developer surface with a downloadable OpenAPI/Swagger spec?
+  answer: partial
+  date: '2026-07-24'
+  reviewer: API Evangelist
+homeMarket: United States
+tier: acquirer-processor
+findings:
+  summary: |
+    ACI Worldwide is a US-headquartered enterprise payments-software vendor
+    (NASDAQ: ACIW). Most of its portfolio — BASE24 card/ATM switching, the ACI
+    Enterprise Payments Platform for real-time and ISO 20022 account-to-account
+    rails, and ACI Speedpay bill payment — ships as licensed on-premise or hosted
+    software, not as a public self-serve API. ACI's genuinely API-native surface
+    is the ACI Open Payment Platform (the acquired PAY.ON global payment gateway),
+    documented at a live, confirmed developer portal.
+
+    Developer portal: https://docs.aciworldwide.com/ (HTTP 200 confirmed). It is a
+    custom-built (Drupal-style) documentation site — not Redoc/Stoplight/Mintlify —
+    and it does NOT expose a downloadable OpenAPI/Swagger definition. Every
+    conventional spec path was probed and returned 404: /openapi.json,
+    /openapi.yaml, /swagger.json, /spec, /api-docs. The REST API is documented
+    only as human-readable reference pages (parameter tables), so ZERO OpenAPI
+    files were harvested. No public Postman collection or GraphQL/gRPC surface was
+    found.
+
+    API host: production https://eu-prod.oppwa.com (HTTP 200), test
+    https://eu-test.oppwa.com (HTTP 200) — the oppwa.com PAY.ON gateway. Direct
+    endpoint probes (e.g. /v1/checkouts) return 404 without a valid access token,
+    consistent with authenticated-only access.
+
+    Auth model: Authorization Bearer access token in the HTTP header, plus a
+    channel `entityId` request parameter identifying the merchant channel. The
+    access token is issued from the ACI back-office UI (Administration > Account
+    data > Merchant/Channel Info). No public /.well-known/openid-configuration or
+    OAuth authorization-server metadata is served; the scheme is a static bearer
+    access token rather than OAuth2 client-credentials or mTLS.
+
+    Webhooks/events: yes — documented at https://docs.aciworldwide.com/webhooks
+    with two notification types, PAYMENT (payment created/updated) and
+    REGISTRATION (registration created/deleted), delivered to merchant-registered
+    URLs. No AsyncAPI definition is published.
+
+    Product surface (integration methods over one unified REST gateway):
+    Server-to-Server, COPYandPAY (embedded widget), Mobile SDK, BackOffice
+    (capture/refund/reversal), and Pay By Link — plus documented capabilities for
+    Tokenization, 3-D Secure, Subscriptions/recurring, Multi-Acquiring, Card-on-
+    File, Fraud, MAC, SSO, PCI, and an "agentic" payments tutorial. The company
+    GitHub org https://github.com/aciworldwide exists (HTTP 200) but hosts no
+    public spec repositories.
+
+    Verdict: this is a real, confirmed API-native developer portal with reference
+    docs, a live gateway host, a defined auth model, and webhooks — but no
+    machine-readable OpenAPI/Swagger is published, so no spec could be harvested.
+  developerPortal:
+    url: https://docs.aciworldwide.com/
+    httpStatus: 200
+    confirmed: true
+    generator: custom (Drupal-style; not Redoc/Stoplight/Mintlify/Swagger UI)
+  downloadableSpecs:
+    openapiHarvested: false
+    specsCount: 0
+    note: >-
+      No downloadable OpenAPI/Swagger found. Probed and 404: docs.aciworldwide.com
+      /openapi.json, /openapi.yaml, /swagger.json, /spec, /api-docs. Reference is
+      human-readable parameter tables only.
+  authModel:
+    scheme: Bearer access token + entityId
+    header: 'Authorization: Bearer <access-token>'
+    entityId: channel entity identifier passed as a request parameter
+    oauthMetadataServed: false
+    mtls: false
+  postman: false
+  graphql: false
+  transports:
+  - protocol: REST
+    scheme: https
+    baseURL: https://eu-prod.oppwa.com
+    testBaseURL: https://eu-test.oppwa.com
+    documented: true
+  - protocol: Webhook
+    scheme: https
+    note: PAYMENT and REGISTRATION notifications POSTed to merchant-registered URLs; no AsyncAPI published.
+    documented: true
+sources:
+- url: https://docs.aciworldwide.com/
+  type: DeveloperPortal
+  httpStatus: 200
+  note: Live developer portal for the ACI Open Payment Platform (PAY.ON gateway).
+- url: https://docs.aciworldwide.com/reference/parameters
+  type: APIReference
+  httpStatus: 200
+  note: REST parameter reference; documents base URLs, Bearer + entityId auth, and webhook notification types.
+- url: https://docs.aciworldwide.com/server-to-server
+  type: Documentation
+  httpStatus: 200
+- url: https://docs.aciworldwide.com/webhooks
+  type: Documentation
+  httpStatus: 200
+  note: PAYMENT and REGISTRATION webhook notifications.
+- url: https://eu-prod.oppwa.com
+  type: APIHost
+  httpStatus: 200
+  note: Production PAY.ON gateway host; authenticated-only, /v1/checkouts returns 404 without a token.
+- url: https://eu-test.oppwa.com
+  type: APIHost
+  httpStatus: 200
+  note: Test PAY.ON gateway host.
+- url: https://github.com/aciworldwide
+  type: GitHubOrganization
+  httpStatus: 200
+  note: Org page exists; no public spec repositories.
