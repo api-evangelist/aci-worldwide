@@ -1,0 +1,106 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/reference/resultCodes
+docs: https://docs.aciworldwide.com/reference/resultCodes
+format: aci-oppwa-result-code
+envelope:
+  field: result.code
+  description_field: result.description
+  code_format: ddd.ddd.ddd
+  note: >-
+    Result codes are classified by regular-expression groups against the dotted
+    code. Applications should match the documented group patterns rather than
+    individual codes. This catalog captures the transaction outcome, validation,
+    system and communication groups; buyer-facing card declines are enumerated
+    in errors/aci-worldwide-decline-codes.yml.
+groups:
+  - pattern: '000.000.*  000.100.1*  000.3*  000.400.[1][12]0'
+    category: success
+    meaning: Transaction succeeded / successfully processed
+    examples:
+      - {code: '000.000.000', description: Transaction succeeded}
+      - {code: '000.300.000', description: Two-step transaction succeeded}
+      - {code: '000.400.110', description: Authentication successful (frictionless flow)}
+  - pattern: '000.400.0[^3]*  000.400.100'
+    category: success-review
+    meaning: Transaction succeeded but should be reviewed manually
+    examples:
+      - {code: '000.400.000', description: Transaction succeeded (please review manually due to fraud suspicion)}
+      - {code: '000.400.010', description: Transaction succeeded (please review manually due to AVS return code)}
+      - {code: '000.400.100', description: Transaction succeeded, risk after payment rejected}
+  - pattern: '000.200.*'
+    category: pending
+    meaning: Transaction pending (short term)
+    examples:
+      - {code: '000.200.000', description: transaction pending}
+      - {code: '000.200.103', description: checkout is pending}
+  - pattern: '800.400.5*  100.400.500'
+    category: pending-delayed
+    meaning: Awaiting external confirmation / risk (delayed)
+    examples:
+      - {code: '800.400.500', description: Waiting for confirmation of non-instant payment. Denied for now.}
+      - {code: '100.400.500', description: waiting for external risk}
+  - pattern: '900.[1234]00  000.400.030'
+    category: communication-error
+    meaning: Communication error with connector/acquirer — result uncertain, safe to retry after resolving connectivity
+    examples:
+      - {code: '900.100.100', description: unexpected communication error with connector/acquirer}
+      - {code: '900.100.300', description: timeout, uncertain result}
+      - {code: '900.100.400', description: timeout at connectors/acquirer side}
+  - pattern: '600.1  800.[56]  800.800.[84]  999.*'
+    category: system-error
+    meaning: System / integrator error — escalate to support if persistent
+    examples:
+      - {code: '600.100.100', description: Unexpected Integrator Error (Request could not be processed)}
+      - {code: '800.600.100', description: transaction is being already processed}
+      - {code: '999.999.999', description: UNDEFINED CONNECTOR/ACQUIRER ERROR}
+  - pattern: '500.[12]  600.[23]  800.121'
+    category: configuration-error
+    meaning: Channel/merchant/payment-method configuration issue — contact account manager
+    examples:
+      - {code: '500.100.201', description: Channel/Merchant is disabled (no processing possible)}
+      - {code: '600.200.100', description: invalid Payment Method}
+      - {code: '600.200.201', description: Channel/Merchant not configured for this payment method}
+      - {code: '800.121.100', description: Channel not configured for given source type. Contact account manager.}
+  - pattern: '100.[13]50'
+    category: registration-validation
+    meaning: Registration/tokenization validation error
+    examples:
+      - {code: '100.150.100', description: request contains no Account data and no registration id}
+      - {code: '100.150.200', description: registration does not exist}
+      - {code: '100.350.301', description: confirmation (CF) must be registered (RG) first}
+  - pattern: '700.[1345][05]0'
+    category: reference-validation
+    meaning: Referenced-transaction validation error
+    examples:
+      - {code: '700.100.100', description: reference id does not exist}
+      - {code: '700.100.200', description: non matching reference amount}
+      - {code: '700.300.200', description: referenced tx was rejected}
+  - pattern: '700.600*  700.601*'
+    category: mac-control-block
+    meaning: Merchant Advice Code retry block — respect issuer guidance
+    examples:
+      - {code: '700.600.002', description: Retry blocked (Retry after 72 hours)}
+      - {code: '700.601.001', description: Retry blocked (Update card info or use 3D Secure before retrying)}
+      - {code: '700.601.003', description: Retry blocked (Account closed or flagged for fraud. Request new payment method)}
+  - pattern: '100.100  100.2[01]  100.55  100.[53][07]  100.800  100.700  100.900  200.[123]  800.900'
+    category: format-validation
+    meaning: Request format / account / amount / address / contact data validation error — correct request before retry
+    examples:
+      - {code: '100.100.100', description: request contains no creditcard, bank account number or bank name}
+      - {code: '100.100.303', description: card expired}
+      - {code: '100.100.700', description: invalid cc number/brand combination}
+      - {code: '100.550.300', description: request contains no amount or too low amount}
+      - {code: '100.550.301', description: amount too large}
+      - {code: '100.550.401', description: invalid currency}
+      - {code: '100.800.100', description: request contains no street}
+      - {code: '100.900.100', description: request contains no email address}
+      - {code: '200.100.101', description: 'invalid Request Message. No valid XML. Must be url-encoded!'}
+      - {code: '800.900.100', description: sender authorization failed}
+  - pattern: '000.100.2*'
+    category: chargeback
+    meaning: Chargeback notification codes
+    examples:
+      - {code: '000.100.200', description: Reason not Specified}
+      - {code: '000.100.220', description: Fraudulent Transaction}
+      - {code: '000.100.232', description: Liability Shift}

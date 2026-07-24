@@ -46,7 +46,7 @@ apis:
     across cards and alternative payment methods. Requests are authenticated with
     an Authorization Bearer access token plus a channel entityId. Production host
     is https://eu-prod.oppwa.com and test host is https://eu-test.oppwa.com.
-  humanURL: https://docs.aciworldwide.com/server-to-server
+  humanURL: https://docs.aciworldwide.com/integrations/server-to-server
   baseURL: https://eu-prod.oppwa.com
   tags:
   - Payments
@@ -55,11 +55,11 @@ apis:
   - REST
   properties:
   - type: Documentation
-    url: https://docs.aciworldwide.com/server-to-server
+    url: https://docs.aciworldwide.com/integrations/server-to-server
   - type: APIReference
     url: https://docs.aciworldwide.com/reference/parameters
-  - type: Documentation
-    url: https://docs.aciworldwide.com/integration-guide
+  - type: GettingStarted
+    url: https://docs.aciworldwide.com/integrations/widget
 - aid: aci-worldwide:copyandpay
   name: ACI COPYandPAY
   description: >-
@@ -69,7 +69,7 @@ apis:
     Platform, reducing the merchant's PCI scope while running on the same
     oppwa.com gateway and access-token/entityId authentication as the
     Server-to-Server API.
-  humanURL: https://docs.aciworldwide.com/copyandpay
+  humanURL: https://docs.aciworldwide.com/integrations/widget
   baseURL: https://eu-prod.oppwa.com
   tags:
   - Payments
@@ -78,9 +78,11 @@ apis:
   - eCommerce
   properties:
   - type: Documentation
-    url: https://docs.aciworldwide.com/copyandpay
+    url: https://docs.aciworldwide.com/integrations/widget
   - type: APIReference
     url: https://docs.aciworldwide.com/reference/parameters
+  - type: Components
+    url: components/aci-worldwide-components.yml
 - aid: aci-worldwide:backoffice
   name: ACI BackOffice API
   description: >-
@@ -88,7 +90,7 @@ apis:
     and manage previously authorized transactions — captures, refunds,
     reversals, and related post-authorization actions — via the same RESTful
     oppwa.com gateway and bearer-token/entityId authentication.
-  humanURL: https://docs.aciworldwide.com/backoffice
+  humanURL: https://docs.aciworldwide.com/integrations/backoffice
   baseURL: https://eu-prod.oppwa.com
   tags:
   - Payments
@@ -96,7 +98,7 @@ apis:
   - Transaction Management
   properties:
   - type: Documentation
-    url: https://docs.aciworldwide.com/backoffice
+    url: https://docs.aciworldwide.com/integrations/backoffice
   - type: APIReference
     url: https://docs.aciworldwide.com/reference/parameters
 - aid: aci-worldwide:pay-by-link
@@ -105,7 +107,7 @@ apis:
     Pay By Link lets merchants create secure, customizable hosted payment link
     pages and collect payments without a full checkout integration, built on the
     Open Payment Platform gateway.
-  humanURL: https://docs.aciworldwide.com/paybylink
+  humanURL: https://docs.aciworldwide.com/integrations/paybylink
   baseURL: https://eu-prod.oppwa.com
   tags:
   - Payments
@@ -113,7 +115,7 @@ apis:
   - eCommerce
   properties:
   - type: Documentation
-    url: https://docs.aciworldwide.com/paybylink
+    url: https://docs.aciworldwide.com/integrations/paybylink
   - type: APIReference
     url: https://docs.aciworldwide.com/reference/parameters
 - aid: aci-worldwide:mobile-sdk
@@ -123,7 +125,7 @@ apis:
     wrapping the Open Payment Platform's card and alternative-payment flows with
     device-side tokenization and 3-D Secure support against the same oppwa.com
     gateway.
-  humanURL: https://docs.aciworldwide.com/mobile-sdk
+  humanURL: https://docs.aciworldwide.com/integrations/mobile-sdk
   baseURL: https://eu-prod.oppwa.com
   tags:
   - Payments
@@ -131,10 +133,12 @@ apis:
   - In-App Payments
   properties:
   - type: Documentation
-    url: https://docs.aciworldwide.com/mobile-sdk
+    url: https://docs.aciworldwide.com/integrations/mobile-sdk
   - type: APIReference
     url: https://docs.aciworldwide.com/reference/parameters
 common:
+- type: DomainSecurity
+  url: security/aci-worldwide-domain-security.yml
 - type: Website
   url: https://www.aciworldwide.com/
 - type: DeveloperPortal
@@ -144,21 +148,45 @@ common:
 - type: APIReference
   url: https://docs.aciworldwide.com/reference/parameters
 - type: GettingStarted
-  url: https://docs.aciworldwide.com/integration-guide
-- type: Webhooks
-  url: https://docs.aciworldwide.com/webhooks
-- type: ChangeLog
-  url: https://docs.aciworldwide.com/reference/release-notes
+  url: https://docs.aciworldwide.com/integrations/widget
 - type: Support
   url: https://docs.aciworldwide.com/support
-- type: GitHubOrganization
-  url: https://github.com/aciworldwide
 - type: Blog
   url: https://www.aciworldwide.com/blog
 - type: TermsOfService
   url: https://www.aciworldwide.com/terms-of-use
 - type: PrivacyPolicy
   url: https://www.aciworldwide.com/privacy-policy
+- type: Authentication
+  url: authentication/aci-worldwide-authentication.yml
+- type: Conventions
+  url: conventions/aci-worldwide-conventions.yml
+- type: ErrorCatalog
+  url: errors/aci-worldwide-result-codes.yml
+- type: DeclineCodes
+  url: errors/aci-worldwide-decline-codes.yml
+- type: Webhooks
+  url: asyncapi/aci-worldwide-webhooks.yml
+- type: Lifecycle
+  url: lifecycle/aci-worldwide-lifecycle.yml
+- type: ChangeLog
+  url: https://docs.aciworldwide.com/reference/release-notes
+- type: ChangeLog
+  url: changelog/aci-worldwide-changelog.yml
+- type: Sandbox
+  url: sandbox/aci-worldwide-sandbox.yml
+- type: Components
+  url: components/aci-worldwide-components.yml
+- type: Conformance
+  url: conformance/aci-worldwide-conformance.yml
+- type: Compliance
+  url: conformance/aci-worldwide-conformance.yml
+- type: Packages
+  url: packages/aci-worldwide-packages.yml
+- type: SDKs
+  url: packages/aci-worldwide-packages.yml
+- type: LLMsTxt
+  url: llms/aci-worldwide-llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,37 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/reference/parameters
+docs: https://docs.aciworldwide.com/reference/parameters
+summary:
+  types: [http, apiKey]
+  api_key_in: [body]
+  oauth2_flows: []
+  note: >-
+    The ACI Open Payment Platform (PAY.ON / oppwa gateway) authenticates every
+    request with an HTTP Authorization Bearer access token, scoped to a channel
+    by a required entityId parameter carried in the request body. There is no
+    OAuth2 authorization/token endpoint and no OpenAPI security scheme published;
+    this profile is captured from the documented request parameters.
+schemes:
+  - name: bearerAuth
+    type: http
+    scheme: bearer
+    description: >-
+      Authorization Bearer header carrying the access token issued per merchant/
+      channel. Retrieved from the backend portal under Administration > Account
+      data > Merchant / Channel Info. Sent as `Authorization: Bearer <token>`.
+    in: header
+    parameter: Authorization
+    sources: [https://docs.aciworldwide.com/reference/parameters]
+  - name: entityId
+    type: apiKey
+    in: body
+    parameter: entityId
+    format: AN32
+    required: conditional
+    description: >-
+      The entity required to authorize the request. This should be the channel
+      entity identifier. If channel dispatching is activated it should be the
+      merchant entity identifier. Sent as a body parameter alongside the bearer
+      token (for HTTP POST all parameters must be in the message body, not the URL).
+    sources: [https://docs.aciworldwide.com/reference/parameters]

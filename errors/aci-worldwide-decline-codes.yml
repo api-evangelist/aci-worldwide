@@ -1,0 +1,45 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/reference/resultCodes
+docs: https://docs.aciworldwide.com/reference/resultCodes
+envelope:
+  field: result.code
+  description_field: result.description
+  note: >-
+    Buyer-facing declines and risk rejections on the ACI Open Payment Platform.
+    A decline is signalled by the result.code group (not a separate field). The
+    issuer often returns a generic "declined for unknown reason" (800.100.100)
+    to avoid disclosing detail to the shopper; more specific reasons (invalid
+    card, stolen card, insufficient funds) are surfaced where the issuer permits.
+    Complements the full result-code catalog in
+    errors/aci-worldwide-result-codes.yml.
+decline_codes:
+  - {code: '800.100.100', meaning: transaction declined for unknown reason, action: do-not-retry, group: issuer-decline}
+  - {code: '800.100.151', meaning: transaction declined (invalid card), action: request-new-method, group: issuer-decline}
+  - {code: '800.100.153', meaning: transaction declined (invalid CVV), action: correct-and-retry, group: issuer-decline}
+  - {code: '800.100.157', meaning: transaction declined (wrong expiry date), action: correct-and-retry, group: issuer-decline}
+  - {code: '800.100.159', meaning: transaction declined (stolen card), action: do-not-retry, group: issuer-decline, masked_to_buyer: true}
+  - {code: '300.100.100', meaning: Transaction declined (additional customer authentication required — soft decline), action: retry-with-3ds, group: soft-decline}
+  - {code: '000.400.101', meaning: card not participating / authentication unavailable, action: retry-with-3ds, group: three-ds}
+  - {code: '000.400.103', meaning: Technical Error in 3D system, action: retry, group: three-ds}
+  - {code: '000.400.200', meaning: risk management check communication error, action: retry, group: three-ds}
+  - {code: '100.390.100', meaning: 3D Secure transaction rejected, action: do-not-retry, group: three-ds}
+  - {code: '100.390.102', meaning: PARes Validation failed, action: retry-with-3ds, group: three-ds}
+  - {code: '100.400.000', meaning: transaction declined (Wrong Address), action: review-risk, group: external-risk}
+  - {code: '100.400.001', meaning: transaction declined (Wrong Identification), action: review-risk, group: external-risk}
+  - {code: '100.400.002', meaning: transaction declined (Insufficient credibility score), action: review-risk, group: external-risk}
+  - {code: '100.400.042', meaning: transaction declined by SCHUFA (Insufficient credibility score), action: review-risk, group: external-risk}
+  - {code: '100.400.121', meaning: account blacklisted, action: do-not-retry, group: external-risk, masked_to_buyer: true}
+  - {code: '100.400.142', meaning: Deny by ReD Shield, action: do-not-retry, group: external-risk}
+  - {code: '800.400.100', meaning: AVS Check Failed, action: correct-address, group: address-validation}
+  - {code: '800.400.150', meaning: Implausible address data, action: correct-address, group: address-validation}
+  - {code: '800.200.159', meaning: account or user is blacklisted (card stolen), action: do-not-retry, group: blacklist, masked_to_buyer: true}
+  - {code: '800.300.101', meaning: account or user is blacklisted, action: do-not-retry, group: blacklist, masked_to_buyer: true}
+  - {code: '800.300.200', meaning: email is blacklisted, action: do-not-retry, group: blacklist}
+  - {code: '800.300.301', meaning: ip blacklisted, action: do-not-retry, group: blacklist}
+  - {code: '800.110.100', meaning: duplicate transaction, action: do-not-retry, group: velocity}
+  - {code: '800.120.100', meaning: Rejected by Throttling, action: retry-later, group: velocity}
+  - {code: '800.120.101', meaning: maximum number of transactions per account already exceeded, action: do-not-retry, group: velocity}
+  - {code: '800.150.100', meaning: Account Holder does not match Customer Name, action: review-risk, group: velocity}
+  - {code: '100.396.101', meaning: Cancelled by user, action: shopper-abandoned, group: async-workflow}
+  - {code: '100.397.102', meaning: Rejected by connector/acquirer due to external update, action: retry, group: async-workflow}

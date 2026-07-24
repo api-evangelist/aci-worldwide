@@ -1,0 +1,30 @@
+# ACI Worldwide — Open Payment Platform (PAY.ON gateway)
+
+> ACI Worldwide (NASDAQ: ACIW) is a US-headquartered payment-software company. Its API-native surface is the ACI Open Payment Platform (the PAY.ON global payment gateway on oppwa.com): a unified RESTful API for accepting and managing card and alternative-payment transactions. Requests are authenticated with an Authorization Bearer access token plus a channel `entityId`; server notifications are delivered as AES-256-GCM encrypted PAYMENT/REGISTRATION/SCHEDULE/RISK webhooks. Production host https://eu-prod.oppwa.com, test host https://eu-test.oppwa.com.
+
+## APIs
+- [Server-to-Server API](https://docs.aciworldwide.com/integrations/server-to-server): Core REST payment API — preauthorization (PA), debit (DB), capture (CP), refund (RF), reversal (RV) over POST /v1/payments and GET /v1/payments/{id}.
+- [COPYandPAY widget](https://docs.aciworldwide.com/integrations/widget): SAQ-A embedded card/alt-payment form loaded via /v1/paymentWidgets.js.
+- [BackOffice API](https://docs.aciworldwide.com/integrations/backoffice): Post-authorization capture, refund and reversal management.
+- [Pay By Link](https://docs.aciworldwide.com/integrations/paybylink): Hosted payment link pages.
+- [Mobile SDK](https://docs.aciworldwide.com/integrations/mobile-sdk): iOS/Android in-app payments with tokenization and 3-D Secure.
+
+## Docs
+- [Developer Portal](https://docs.aciworldwide.com/)
+- [Parameters & Authentication reference](https://docs.aciworldwide.com/reference/parameters)
+- [Result Codes reference](https://docs.aciworldwide.com/reference/resultCodes)
+- [Webhooks tutorial](https://docs.aciworldwide.com/tutorials/webhooks)
+- [Release Notes](https://docs.aciworldwide.com/reference/release-notes)
+- [Support](https://docs.aciworldwide.com/support)
+
+## Artifacts
+- [Authentication profile](authentication/aci-worldwide-authentication.yml): Bearer token + entityId.
+- [API conventions](conventions/aci-worldwide-conventions.yml): versioning, error envelope, rate limits (no idempotency/pagination published).
+- [Result codes catalog](errors/aci-worldwide-result-codes.yml): full ddd.ddd.ddd result-code groups.
+- [Decline codes](errors/aci-worldwide-decline-codes.yml): buyer-facing issuer/risk/3DS declines.
+- [Webhooks catalog](asyncapi/aci-worldwide-webhooks.yml): AES-256-GCM PAYMENT/REGISTRATION/SCHEDULE/RISK events.
+- [Embedded components](components/aci-worldwide-components.yml): COPYandPAY, Pay By Link, Mobile SDK.
+- [Sandbox / test data](sandbox/aci-worldwide-sandbox.yml): eu-test.oppwa.com test environment.
+- [Conformance](conformance/aci-worldwide-conformance.yml): PCI DSS, EMV 3DS, PSD2 SCA, ISO 20022.
+- [Packages / SDKs](packages/aci-worldwide-packages.yml): first-party Mobile SDK.
+- [Lifecycle](lifecycle/aci-worldwide-lifecycle.yml) · [Changelog](changelog/aci-worldwide-changelog.yml) · [Domain security](security/aci-worldwide-domain-security.yml)

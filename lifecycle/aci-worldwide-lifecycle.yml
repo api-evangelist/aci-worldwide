@@ -1,0 +1,28 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/reference/release-notes
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.aciworldwide.com/integrations/server-to-server
+  detail: >-
+    The Open Payment Platform REST resources are versioned in the URI path
+    (/v1/payments, /v1/payments/{id}, /v1/paymentWidgets.js). No date- or
+    header-based versioning is documented.
+release_notes: https://docs.aciworldwide.com/reference/release-notes
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: >-
+    No formal deprecation policy or RFC 8594 Sunset/Deprecation header support
+    is documented. (No Deprecation pointer emitted — none published.)
+status_page:
+  url: null
+  detail: >-
+    No active public status page. aciworldwide.statuspage.io resolves to an
+    /inactive placeholder; status.aciworldwide.com does not resolve. (No
+    StatusPage pointer emitted.)
+sla:
+  url: null
+  detail: SLA terms are handled via enterprise contract; no public SLA page found.
+support: https://docs.aciworldwide.com/support

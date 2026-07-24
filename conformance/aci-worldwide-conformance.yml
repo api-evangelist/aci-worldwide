@@ -1,0 +1,47 @@
+generated: '2026-07-24'
+method: searched
+source:
+  - https://docs.aciworldwide.com/integrations/widget
+  - https://docs.aciworldwide.com/reference/parameters
+  - https://docs.aciworldwide.com/tutorials/webhooks
+standards:
+  - id: pci-dss
+    conforms: true
+    evidence: >-
+      ACI is a PCI DSS Level 1 payment gateway; the COPYandPAY widget is
+      documented as a "SAQ-A compliant credit card form" that keeps raw card
+      data off the merchant server, reducing PCI scope.
+  - id: emv-3ds
+    conforms: true
+    evidence: >-
+      3-D Secure (EMV 3DS) authentication flows are first-class in the result
+      codes (000.400.* authentication, 100.390.* 3DS validation) and Mobile SDK.
+  - id: psd2-sca
+    conforms: true
+    evidence: >-
+      Strong Customer Authentication is supported via 3-D Secure; soft-decline
+      code 300.100.100 requests additional customer authentication (SCA).
+  - id: iso-4217
+    conforms: true
+    evidence: currency parameter is an ISO 4217 alphabetic code (A3).
+  - id: iso-20022
+    conforms: true
+    evidence: >-
+      ACI's Enterprise Payments Platform provides ISO 20022 account-to-account
+      real-time rails (company-level capability referenced in apis.yml).
+  - id: oauth2
+    conforms: false
+    evidence: >-
+      Authentication is a bearer access token plus entityId, not an OAuth2
+      authorization-server flow. See authentication/aci-worldwide-authentication.yml.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Errors use the ACI result-code envelope (result.code + result.description),
+      not application/problem+json.
+  - id: aes-256-gcm-webhooks
+    conforms: true
+    evidence: Webhook payloads are AES-256-GCM encrypted (IV + auth tag in headers).
+compliance_note: >-
+  PCI DSS is the published compliance posture surfaced in the developer docs
+  (SAQ-A / PCI scope reduction via the hosted widget). Emit Compliance pointer.

@@ -1,0 +1,36 @@
+generated: '2026-07-24'
+method: searched
+source:
+  - https://docs.aciworldwide.com/integrations/mobile-sdk
+  - https://docs.aciworldwide.com/integrations/server-to-server
+note: >-
+  ACI distributes its first-party Mobile SDK for the Open Payment Platform
+  through the developer portal / direct download rather than a public package
+  registry, and provides Server-to-Server code samples in multiple languages
+  rather than published server SDKs. No first-party libraries were found on npm,
+  PyPI, Maven Central, NuGet, RubyGems, Packagist, crates.io or pkg.go.dev.
+packages:
+  - language: swift
+    platform: ios
+    registry: portal-download
+    name: ACI Mobile SDK (iOS)
+    url: https://docs.aciworldwide.com/integrations/mobile-sdk
+    official: true
+    note: In-app card + alternative-payment SDK with device-side tokenization and 3-D Secure.
+  - language: kotlin
+    platform: android
+    registry: portal-download
+    name: ACI Mobile SDK (Android)
+    url: https://docs.aciworldwide.com/integrations/mobile-sdk
+    official: true
+    note: In-app card + alternative-payment SDK with device-side tokenization and 3-D Secure.
+  - language: javascript
+    registry: npm
+    name: aci
+    url: https://www.npmjs.com/package/aci
+    install: npm install aci
+    official: false
+    note: >-
+      Third-party community server-to-server SDK (author Gajus Kuizinas); not
+      maintained by ACI Worldwide and currently deprecated on npm. Recorded for
+      completeness, not endorsed.

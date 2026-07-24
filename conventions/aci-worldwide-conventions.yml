@@ -1,0 +1,66 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/reference/parameters
+docs:
+  - https://docs.aciworldwide.com/reference/parameters
+  - https://docs.aciworldwide.com/integrations/server-to-server
+  - https://docs.aciworldwide.com/tutorials/webhooks
+conventions:
+  authentication:
+    style: bearer-token-plus-entity
+    detail: >-
+      Authorization Bearer access token in the HTTP header, plus a required
+      entityId body parameter identifying the channel (or merchant, when channel
+      dispatching is active). See authentication/aci-worldwide-authentication.yml.
+  request_encoding:
+    detail: >-
+      For HTTP POST requests all parameters must be incorporated in the message
+      body (form-encoded), not in the URL. The API is RESTful over the oppwa
+      gateway hosts.
+  versioning:
+    scheme: uri-path
+    current: v1
+    detail: >-
+      Resources are versioned in the URI path (e.g. POST /v1/payments,
+      GET /v1/payments/{id}, /v1/paymentWidgets.js). No date- or header-based
+      version negotiation is documented.
+  idempotency:
+    supported: false
+    detail: >-
+      No idempotency-key header or request-id de-duplication mechanism is
+      documented for the Open Payment Platform. Duplicate suppression is instead
+      surfaced reactively via result code 800.110.100 "duplicate transaction".
+      (No Idempotency pointer is emitted — the provider does not publish an
+      idempotency contract.)
+  pagination:
+    supported: false
+    detail: >-
+      No cursor/offset pagination is documented; the payment API is transaction-
+      oriented (create a payment, then GET the single payment resource by id).
+  resource_model:
+    detail: >-
+      A successful create returns an `id`; subsequent operations (capture,
+      refund, reversal, status query) reference /v1/payments/{id}. Asynchronous
+      flows redirect the shopper to `shopperResultUrl` with a `resourcePath`
+      GET parameter of the form /v1/payments/{id} used to fetch the result.
+  error_envelope:
+    format: result-code-object
+    detail: >-
+      Every response carries a `result` object with a `code` (dotted
+      ddd.ddd.ddd result code) and a human-readable `description`. Success,
+      pending, decline and validation outcomes are all distinguished by the
+      result.code regex groups. See errors/aci-worldwide-result-codes.yml and
+      errors/aci-worldwide-decline-codes.yml.
+  rate_limiting:
+    detail: >-
+      Payment status requests are throttled to two requests per minute per
+      transaction (per checkout). The dedicated query endpoint returns status
+      without that restriction. No global rate-limit response headers are
+      documented.
+  webhooks:
+    detail: >-
+      Server notifications (PAYMENT, REGISTRATION, SCHEDULE, RISK) are delivered
+      AES-256-GCM encrypted with the IV in X-Initialization-Vector and the auth
+      tag in X-Authentication-Tag. See asyncapi/aci-worldwide-webhooks.yml.
+  checkout_expiry:
+    detail: A prepared checkout id expires after 30 minutes or upon successful payment.

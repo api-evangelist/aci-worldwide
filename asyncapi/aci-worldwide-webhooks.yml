@@ -1,0 +1,39 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/tutorials/webhooks
+docs: https://docs.aciworldwide.com/tutorials/webhooks
+spec_type: Webhooks
+summary: >-
+  The ACI Open Payment Platform delivers server-to-server webhook notifications
+  for payment, tokenization, scheduling and risk events. Notifications are
+  configured in the portal (Administration > Webhooks), encrypted with
+  AES-256-GCM, and delivered to a merchant-owned HTTPS endpoint. No AsyncAPI
+  document is published by the provider, so this captures the webhook catalog.
+transport: https-push
+encryption:
+  algorithm: AES-256-GCM
+  mode: no-padding
+  secret: 64-character hexadecimal encryption key configured per webhook
+  body: encrypted payload as hexadecimal
+  headers:
+    - {name: X-Initialization-Vector, purpose: AES-GCM initialization vector}
+    - {name: X-Authentication-Tag, purpose: AES-GCM authentication tag}
+delivery:
+  ack: endpoint must return HTTP 2xx within 30 seconds
+  retry_schedule: 1min, 2min, 4min, 8min, 15min, 30min, 1h, then daily up to 30 days
+  fields_options: [ALL, NON_CUSTOMER_DATA]
+  wrapper_options: [raw-hex, json-wrapped]
+payload_shape:
+  type: "[PAYMENT|REGISTRATION|SCHEDULE|RISK]"
+  action: "[CREATED|UPDATED|DELETED]"
+  payload: "mirrors the corresponding API response for the event type"
+event_types:
+  - name: PAYMENT
+    description: Transaction payment events (authorization, capture, refund, reversal outcomes).
+  - name: REGISTRATION
+    description: Token / registration lifecycle events.
+    actions: [CREATED, UPDATED, DELETED]
+  - name: SCHEDULE
+    description: Scheduled (recurring) payment execution notifications.
+  - name: RISK
+    description: Risk assessment and decision events.

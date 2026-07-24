@@ -1,0 +1,20 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/reference/release-notes
+docs: https://docs.aciworldwide.com/reference/release-notes
+scheme:
+  api_version: v1
+  style: rolling-release-notes
+  detail: >-
+    ACI publishes a dated Release Notes feed on the developer portal, filterable
+    by Product and Functional Area. Entries are rendered client-side and are not
+    machine-readable; the portal page is the authoritative changelog. The REST
+    API itself is versioned as v1 in the URI path and evolves additively.
+entries:
+  - note: >-
+      Individual dated entries are loaded dynamically from the portal and could
+      not be captured verbatim. See the live Release Notes page for the current
+      window of changes across the Open Payment Platform products (Server-to-
+      Server, COPYandPAY, BackOffice, Pay By Link, Mobile SDK, Webhooks).
+    date: null
+    url: https://docs.aciworldwide.com/reference/release-notes

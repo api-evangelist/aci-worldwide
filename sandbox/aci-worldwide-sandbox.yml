@@ -1,0 +1,29 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/reference/parameters
+docs:
+  - https://docs.aciworldwide.com/reference/parameters
+  - https://docs.aciworldwide.com/integrations/server-to-server
+test_live_separation:
+  model: separate-hosts-plus-entity
+  detail: >-
+    Test and live traffic are separated by host and by the channel entityId. The
+    same request shape runs against the test host with a test-mode entityId, then
+    against the production host with a live entityId. There is no test/live key
+    prefix; the bearer access token and entityId are issued per environment from
+    the portal.
+hosts:
+  test: https://eu-test.oppwa.com
+  live: https://eu-prod.oppwa.com
+widget_test_loader: https://eu-test.oppwa.com/v1/paymentWidgets.js?checkoutId={checkoutId}
+checkout_expiry: A prepared checkout id expires after 30 minutes or on successful payment.
+test_values:
+  cards:
+    - {brand: VISA, number: '4200000000000000', note: "Canonical PAY.ON / oppwa test Visa card used in the test environment. Source: docs.aciworldwide.com testing guidance."}
+  note: >-
+    Additional test card numbers per brand and negative-test values (to exercise
+    specific result codes) are published in the portal testing sheet and are only
+    honored in the test (UAT) environment — error/decline conditions cannot be
+    forced in production. Only values explicitly published by ACI are recorded
+    here; none are invented.
+result_code_testing: https://docs.aciworldwide.com/reference/resultCodes

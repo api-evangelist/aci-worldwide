@@ -1,0 +1,43 @@
+generated: '2026-07-24'
+method: searched
+source: https://docs.aciworldwide.com/integrations/widget
+docs:
+  - https://docs.aciworldwide.com/integrations/widget
+  - https://docs.aciworldwide.com/integrations/paybylink
+  - https://docs.aciworldwide.com/integrations/mobile-sdk
+summary: >-
+  Client-side, embeddable payment surfaces of the ACI Open Payment Platform that
+  render and tokenize sensitive card data in the browser or app, reducing the
+  merchant's PCI scope. Distinct from server-side integration.
+components:
+  - family: COPYandPAY
+    kind: embedded-web-widget
+    description: >-
+      Hosted, SAQ-A-compliant card and alternative-payment form embedded into a
+      merchant checkout page. The merchant prepares a checkout server-side, then
+      loads the widget script and drops a <form class="paymentWidgets"> element;
+      the widget collects and tokenizes card data directly against the oppwa
+      gateway so raw PAN never touches the merchant server.
+    loader: https://{host}/v1/paymentWidgets.js?checkoutId={checkoutId}
+    loader_hosts:
+      test: https://eu-test.oppwa.com/v1/paymentWidgets.js
+      live: https://eu-prod.oppwa.com/v1/paymentWidgets.js
+    mount: '<form action="{shopperResultUrl}" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>'
+    config: wpwlOptions (client-side JavaScript configuration object)
+    attributes: [class=paymentWidgets, data-brands, action]
+    notes:
+      - Script tag carries integrity and crossorigin="anonymous" attributes.
+      - Multiple forms are supported for brand promotion.
+      - Checkout id expires after 30 minutes or upon successful payment.
+  - family: Pay By Link
+    kind: hosted-payment-page
+    description: >-
+      Secure, customizable hosted payment link pages that collect a payment
+      without a full checkout integration, built on the Open Payment Platform.
+    docs: https://docs.aciworldwide.com/integrations/paybylink
+  - family: Mobile SDK
+    kind: native-mobile-sdk
+    description: >-
+      iOS and Android SDK that renders the card and alternative-payment flows
+      in-app with device-side tokenization and 3-D Secure support.
+    docs: https://docs.aciworldwide.com/integrations/mobile-sdk

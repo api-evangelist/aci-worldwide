@@ -1,0 +1,28 @@
+generated: '2026-07-24'
+method: probed
+source: live /.well-known/ probes of apis.yml + API hosts
+summary: >-
+  No /.well-known/ discovery documents were served by any ACI host. security.txt,
+  OpenID/OAuth discovery, api-catalog and ai-plugin.json all returned non-200.
+  Recorded as negative evidence; no WellKnown pointer emitted.
+hosts:
+  - host: https://eu-prod.oppwa.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://eu-test.oppwa.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+  - host: https://www.aciworldwide.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /security.txt, status: 404}
+  - host: https://docs.aciworldwide.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /llms.txt, status: 404}
