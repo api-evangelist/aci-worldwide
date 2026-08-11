@@ -18,6 +18,17 @@ description: >-
   channel entityId and complemented by PAYMENT and REGISTRATION webhook
   notifications. Its home market is the United States, inside the deep,
   fragmented, API-native US payments landscape.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-11'
+  method: derived
 image: https://www.aciworldwide.com/wp-content/uploads/2021/05/cropped-android-chrome-512x512-1-192x192.png
 tags:
 - Payments
