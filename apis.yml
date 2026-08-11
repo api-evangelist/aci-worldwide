@@ -137,6 +137,8 @@ apis:
   - type: APIReference
     url: https://docs.aciworldwide.com/reference/parameters
 common:
+- type: MCPServer
+  url: https://docs.aciworldwide.com/integrations/agentic/mcp-server
 - type: DomainSecurity
   url: security/aci-worldwide-domain-security.yml
 - type: Website
