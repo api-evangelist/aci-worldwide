@@ -37,6 +37,20 @@ tags:
 - Payment Processing
 - Acquiring
 - Card Payments
+- E-Commerce
+- Fraud
+- Tokenization
+- 3D Secure
+- Bill Payments
+- Real-Time Payments
+- ISO 20022
+tags_raw:
+- Payments
+- United States
+- Payment Gateway
+- Payment Processing
+- Acquiring
+- Card Payments
 - eCommerce
 - Fraud
 - Tokenization
@@ -61,6 +75,11 @@ apis:
   baseURL: https://eu-prod.oppwa.com
   tags:
   - Payments
+  - Server-to-Server
+  - Card Payments
+  - REST
+  tags_raw:
+  - Payments
   - Server to Server
   - Card Payments
   - REST
@@ -83,6 +102,11 @@ apis:
   humanURL: https://docs.aciworldwide.com/integrations/widget
   baseURL: https://eu-prod.oppwa.com
   tags:
+  - Payments
+  - Embedded Checkout
+  - PCI
+  - E-Commerce
+  tags_raw:
   - Payments
   - Embedded Checkout
   - PCI
@@ -121,6 +145,10 @@ apis:
   humanURL: https://docs.aciworldwide.com/integrations/paybylink
   baseURL: https://eu-prod.oppwa.com
   tags:
+  - Payments
+  - Payment Links
+  - E-Commerce
+  tags_raw:
   - Payments
   - Payment Links
   - eCommerce
