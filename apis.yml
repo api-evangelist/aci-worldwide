@@ -41,7 +41,7 @@ tags:
 - Fraud
 - Tokenization
 - 3D Secure
-- Bill Payment
+- Bill Payments
 - Real-Time Payments
 - ISO 20022
 tags_raw:
@@ -75,7 +75,7 @@ apis:
   baseURL: https://eu-prod.oppwa.com
   tags:
   - Payments
-  - Server to Server
+  - Server-to-Server
   - Card Payments
   - REST
   tags_raw:
