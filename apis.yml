@@ -73,7 +73,7 @@ tags_raw:
 - Real-Time Payments
 - ISO 20022
 created: '2026-07-24'
-modified: '2026-07-24'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: aci-worldwide:open-payment-platform-server-to-server
@@ -190,6 +190,8 @@ apis:
   - type: APIReference
     url: https://docs.aciworldwide.com/reference/parameters
 common:
+- url: https://www.aciworldwide.com/feed
+  type: BlogRSS
 - type: MCPServer
   url: https://docs.aciworldwide.com/integrations/agentic/mcp-server
 - type: DomainSecurity
