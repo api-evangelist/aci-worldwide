@@ -15,3 +15,16 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
+- slug: aci-worldwide-guidewire-own
+  label: Guidewire (own)
+  partner: guidewire
+  partner_name: Guidewire (own)
+  category: Accelerator; Claim Disbursements;Payments; ClaimCenter
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.guidewire.com/product/01t3n00000SxmGCAAZ/01t3n00000SxmGCAAZ
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
