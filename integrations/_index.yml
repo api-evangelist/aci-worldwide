@@ -15,19 +15,6 @@
   relationship: distribution-channel
   status: not-a-workflow
   arazzo: null
-- slug: aci-worldwide-guidewire-own
-  label: Guidewire (own)
-  partner: guidewire
-  partner_name: Guidewire (own)
-  category: Accelerator; Claim Disbursements;Payments; ClaimCenter
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://marketplace.guidewire.com/product/01t3n00000SxmGCAAZ/01t3n00000SxmGCAAZ
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: aci-worldwide-pci-security-standards-council-program-listings
   label: PCI Security Standards Council (program listings)
   partner_name: PCI Security Standards Council (program listings)
@@ -66,5 +53,31 @@
       accepted on Kin's instruction 2026-10-20
     detected_by: sweep-compliance-assurance.py
     detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: aci-worldwide-guidewire-own
+  label: Guidewire (own)
+  partner: guidewire
+  partner_name: Guidewire (own)
+  category: Accelerator; Claim Disbursements;Payments; ClaimCenter
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://marketplace.guidewire.com/product/01t3n00000SxmGCAAZ/01t3n00000SxmGCAAZ
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: aci-worldwide-bigcommerce-own
+  label: BigCommerce (own)
+  partner: bigcommerce
+  partner_name: BigCommerce (own)
+  category: Payments & Security, Payment Processors & Gateways
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.bigcommerce.com/apps/aci-worldwide/
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
