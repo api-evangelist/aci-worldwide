@@ -1,4 +1,4 @@
-# ACI Worldwide (aci-worldwide)
+# ACI Worldwide
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,85 +64,108 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ACI Worldwide (NASDAQ: ACIW) is a US-headquartered payment-software company that builds real-time payment, card, merchant/eCommerce, and bill-payment technology for banks, processors, merchants, and billers worldwide. Its enterprise portfolio — BASE24 card/ATM switching, the ACI Enterprise Payments Platform for real-time and ISO 20022 account-to-account rails, and ACI Speedpay bill payment — ships largely as licensed on-premise or hosted software. ACI's API-native surface is the ACI Open Payment Platform (the PAY.ON global payment gateway), a unified RESTful API for accepting and managing card and alternative payments.
+ACI Worldwide (NASDAQ: ACIW) is a US-headquartered payment-software company that builds real-time payment, card, merchant/eCommerce, and bill-payment technology for banks, processors, merchants, and billers around the world. Its enterprise portfolio spans BASE24 card and ATM switching, the ACI Enterprise Payments Platform for real-time and ISO 20022 account-to-account rails, and ACI Speedpay bill payment — most of which ship as licensed, on-premise or hosted software rather than public self-serve APIs. ACI's genuinely API-native surface is the ACI Open Payment Platform (the PAY.ON global payment gateway): a unified RESTful API documented at docs.aciworldwide.com that lets merchants and PSPs accept and manage card and alternative-payment transactions through Server-to-Server, COPYandPAY, Mobile SDK, BackOffice, and Pay By Link integrations, authenticated with an Authorization Bearer access token plus a channel entityId and complemented by PAYMENT and REGISTRATION webhook notifications. Its home market is the United States, inside the deep, fragmented, API-native US payments landscape.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/aci-worldwide/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/aci-worldwide/refs/heads/main/apis.yml)
+**Areas:** Payments · United States · Payment Gateway · Payment Processing · Acquiring · Card Payments · E-Commerce · Fraud Prevention · Tokenization · 3D Secure · Bill Payments · Real-Time Payments
 
-## Tags
+## ACI Worldwide on APIs.io
 
-- Payments
-- United States
-- Payment Gateway
-- Payment Processing
-- Acquiring
-- Card Payments
-- eCommerce
-- Fraud
-- Tokenization
-- 3D Secure
-- Bill Payment
-- Real-Time Payments
-- ISO 20022
+Everything profiled for ACI Worldwide is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aci-worldwide/](https://apis.io/providers/aci-worldwide/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (5)
 
-- **Created:** 2026-07-24
-- **Modified:** 2026-07-24
+- [ACI Open Payment Platform — Server-to-Server API](https://apis.io/apis/aci-worldwide/open-payment-platform-server-to-server/) — The core RESTful payment API of the ACI Open Payment Platform (PAY.ON gateway). Server-to-Server integration lets merchants and PSPs run end-to-end payment…
+- [ACI COPYandPAY](https://apis.io/apis/aci-worldwide/copyandpay/) — COPYandPAY is ACI's secure, PCI-friendly embedded payments widget for merchants and integrators. It renders a hosted card and alternative-payment form that…
+- [ACI BackOffice API](https://apis.io/apis/aci-worldwide/backoffice/) — BackOffice operations on the Open Payment Platform let integrators process and manage previously authorized transactions — captures, refunds, reversals, and…
+- [ACI Pay By Link API](https://apis.io/apis/aci-worldwide/pay-by-link/) — Pay By Link lets merchants create secure, customizable hosted payment link pages and collect payments without a full checkout integration, built on the Open…
+- [ACI Mobile SDK](https://apis.io/apis/aci-worldwide/mobile-sdk/) — The ACI Mobile SDK lets developers accept payments inside native mobile apps, wrapping the Open Payment Platform's card and alternative-payment flows with…
 
-## APIs
+### Published properties
 
-All ACI public payment APIs run on the Open Payment Platform (PAY.ON) gateway — production host `https://eu-prod.oppwa.com`, test host `https://eu-test.oppwa.com` — authenticated with an `Authorization: Bearer <access-token>` header plus a channel `entityId`. No downloadable OpenAPI/Swagger is published; the reference is human-readable at [docs.aciworldwide.com](https://docs.aciworldwide.com/).
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### ACI Open Payment Platform — Server-to-Server API
+#### AsyncAPI (1)
 
-Core RESTful payments: preauthorization, debit, capture, refund, and reversal across cards and alternative payment methods.
+Event-driven and webhook contracts.
 
-- **Human URL:** [https://docs.aciworldwide.com/server-to-server](https://docs.aciworldwide.com/server-to-server)
-- **Base URL:** `https://eu-prod.oppwa.com`
+- [Aci Worldwide Webhooks](https://apis.io/asyncapis/aci-worldwide/aci-worldwide-webhooks/)
 
-### ACI COPYandPAY
+#### MCP servers (1)
 
-Secure, PCI-friendly embedded payments widget that tokenizes and submits card/APM data directly to the gateway.
+Model Context Protocol servers that expose the API to agents.
 
-- **Human URL:** [https://docs.aciworldwide.com/copyandpay](https://docs.aciworldwide.com/copyandpay)
-- **Base URL:** `https://eu-prod.oppwa.com`
+- [mcp-server](https://apis.io/servers/aci-worldwide/mcp-server/)
 
-### ACI BackOffice API
+#### Security (2)
 
-Post-authorization transaction management — captures, refunds, and reversals.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.aciworldwide.com/backoffice](https://docs.aciworldwide.com/backoffice)
-- **Base URL:** `https://eu-prod.oppwa.com`
+- [Aci Worldwide Authentication](https://apis.io/security/aci-worldwide/aci-worldwide-authentication/)
+- [Aci Worldwide Domain Security](https://apis.io/security/aci-worldwide/aci-worldwide-domain-security/)
 
-### ACI Pay By Link API
+## Where to find this API
 
-Create secure, customizable hosted payment link pages without a full checkout integration.
-
-- **Human URL:** [https://docs.aciworldwide.com/paybylink](https://docs.aciworldwide.com/paybylink)
-- **Base URL:** `https://eu-prod.oppwa.com`
-
-### ACI Mobile SDK
-
-Accept payments inside native mobile apps with device-side tokenization and 3-D Secure.
-
-- **Human URL:** [https://docs.aciworldwide.com/mobile-sdk](https://docs.aciworldwide.com/mobile-sdk)
-- **Base URL:** `https://eu-prod.oppwa.com`
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.aciworldwide.com/)
-- [Developer Portal](https://docs.aciworldwide.com/)
-- [API Reference](https://docs.aciworldwide.com/reference/parameters)
-- [Getting Started](https://docs.aciworldwide.com/integration-guide)
-- [Webhooks](https://docs.aciworldwide.com/webhooks)
-- [Change Log / Release Notes](https://docs.aciworldwide.com/reference/release-notes)
+- [Documentation](https://docs.aciworldwide.com/)
+- [Getting started](https://docs.aciworldwide.com/integrations/widget)
+- [API reference](https://docs.aciworldwide.com/reference/parameters)
 - [Support](https://docs.aciworldwide.com/support)
-- [GitHub Organization](https://github.com/aciworldwide)
+- [Changelog](https://docs.aciworldwide.com/reference/release-notes)
 - [Blog](https://www.aciworldwide.com/blog)
-- [Terms of Use](https://www.aciworldwide.com/terms-of-use)
-- [Privacy Policy](https://www.aciworldwide.com/privacy-policy)
+- [Terms of service](https://www.aciworldwide.com/terms-of-use)
+- [Privacy policy](https://www.aciworldwide.com/privacy-policy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 45.7** — developing · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 76.7 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 71.4 |
+| Access clarity | 28.9 |
+
+**Agent readiness 25.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 39.3** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aci-worldwide/](https://apis.io/providers/aci-worldwide/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ACI Worldwide: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aci-worldwide/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
