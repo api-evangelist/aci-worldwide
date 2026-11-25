@@ -100,8 +100,8 @@ Model Context Protocol servers that expose the API to agents.
 
 Authentication, trust centre, and vulnerability disclosure.
 
-- [Aci Worldwide Authentication](https://apis.io/security/aci-worldwide/aci-worldwide-authentication/)
-- [Aci Worldwide Domain Security](https://apis.io/security/aci-worldwide/aci-worldwide-domain-security/)
+- [ACI Worldwide Authentication](https://apis.io/security/aci-worldwide/aci-worldwide-authentication/)
+- [ACI Worldwide Domain Security](https://apis.io/security/aci-worldwide/aci-worldwide-domain-security/)
 
 ## Where to find this API
 
@@ -119,18 +119,18 @@ Links to the company's own pages. This repository publishes no copy of their spe
 
 ## API Evangelist rating
 
-**Kin Score 45.7** — developing · rubric 0.25.0 · scored 2026-10-23
+**Kin Score 46.5** — developing · rubric 0.28.1 · scored 2026-11-21
 
 | Facet | Score |
 |---|---|
 | Discoverability | 76.7 |
 | Contract quality | 39.0 |
 | Contract governance | 18.2 |
-| Operational transparency | 23.7 |
+| Operational transparency | 21.4 |
 | Developer ergonomics | 71.4 |
-| Access clarity | 28.9 |
+| Access clarity | 38.3 |
 
-**Agent readiness 25.8** — agent-aware
+**Agent readiness 25.2** — agent-aware
 
 | Agent-readiness dimension | Result |
 |---|---|
@@ -155,8 +155,12 @@ Links to the company's own pages. This repository publishes no copy of their spe
 | Agentic Commerce | — |
 | Pagination Ratio | na |
 | Operation Distinctiveness | na |
+| MCP Tool Quality | na |
+| Onboarding Descriptor | — |
+| Dns Aid Index | na |
+| Markdown Negotiation | na |
 
-**Regulatory alignment 39.3** — Payments
+**Regulatory alignment 33.9** — Payments
 
 The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aci-worldwide/](https://apis.io/providers/aci-worldwide/).
 
